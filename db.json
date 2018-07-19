@@ -5,21 +5,21 @@
       "name": "Woody",
       "inCollection": true,
       "image": "https://banner2.kisspng.com/20180402/rre/kisspng-toy-story-sheriff-woody-jessie-buzz-lightyear-pixa-story-5ac1f5ec43f392.6162735415226608442783.jpg",
-      "likes": 0
+      "likes": 4
     },
     {
       "id": 2,
       "name": "Buzz Lightyear",
       "inCollection": false,
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 0
+      "likes": 6
     },
     {
       "id": 3,
       "name": "Mr. Potato Head",
       "inCollection": true,
       "image": "https://banner2.kisspng.com/20180323/gfw/kisspng-mr-potato-head-toy-story-potato-5ab50f15e70ae3.6255587515218153179464.jpg",
-      "likes": 0
+      "likes": 1
     },
     {
       "id": 4,
@@ -40,7 +40,7 @@
       "name": "Bo Peep",
       "inCollection": false,
       "image": "http://4.bp.blogspot.com/_OZHbJ8c71OM/Sog43CMFX2I/AAAAAAAADEs/0AKX0XslD4g/s400/bo.png",
-      "likes": 0
+      "likes": 2
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "name": "Little Green Men",
       "inCollection": false,
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
-      "likes": 0
-    },
+      "likes": -2
+    }
   ]
 }

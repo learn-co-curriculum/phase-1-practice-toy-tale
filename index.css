@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  font-family: monospace;
+}
+
+#toy-header {
+  display: flex;
+  justify-content: center;
+  background: lightsteelblue;
+  opacity: .8;
+  height: 7rem;
+  padding: 1rem;
+}
+
+#toy-header img {
+  height: 6rem;
+  width: auto;
+}

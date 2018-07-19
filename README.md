@@ -1,11 +1,44 @@
 #Toy Tale
-You got a friend named Andy who recently misplaced all their toys!
+You got a friend in need!
+
+Your friend Andy recently misplaced all their toys!
 
 Help Andy recover their toys and get the toys back in the toy collection.
 
-When
+#STEP 1: Create your server!
+
+All of the toy data is stored in the db.json file. You'll want to access this data using a json server. In order to do this, run the following two commands:
+    * npm install -g json-server
+    * json-server --watch db.json
+This will create a server storing all of our lost toy data with restful routes at http://localhost:3000/toys.
+You can also check out http://localhost:3000/toys/:id
 
 
-#STEP 1
+#STEP 2: Fetch Andy's Toys!
 
-All of the toy data is stored in the db.json file. You'll want to access this data using a json server. In order to do this, run the following commands: npm install -g json-server json-server --watch db.json
+On the index.html page, there is a div with the id "toy-collection"
+
+When the page loads, make a 'GET' request to fetch all the toy objects. With the response data, make a `<div class="card">` for each toy and add it to the toy-collection div.
+
+#STEP 3: Add toy info the the card!
+
+Each card should have the following child elements:
+  * h2 tag with the toy's name
+  * image tag with the src of the toy's image attribute - needs a class name of "toy-avatar"
+  * p tag with how many likes that toy has
+  * button tag with an class of "like"
+
+After all if that - the toy card should resemble:
+
+  `<div class="card" >
+    <h2>Woody</h2>
+    <img src=tot_image_url class="toy-avatar">
+    <p>4 Likes <p>
+    <button>Like <3</button>
+  </div>`
+
+#STEP 4: Increase toy's likes!
+
+When a user clicks on a toy's like button, two things should happen:
+  * Conditionally increase the toy's like count
+  * Send a patch request to the server at http://localhost:3000/toys/:id updating the number of likes that the specific toy has
