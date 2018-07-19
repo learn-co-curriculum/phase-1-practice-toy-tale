@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Woody",
       "inCollection": true,
-      "image": "https://banner2.kisspng.com/20180402/rre/kisspng-toy-story-sheriff-woody-jessie-buzz-lightyear-pixa-story-5ac1f5ec43f392.6162735415226608442783.jpg",
+      "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
       "likes": 4
     },
     {
@@ -18,21 +18,21 @@
       "id": 3,
       "name": "Mr. Potato Head",
       "inCollection": true,
-      "image": "https://banner2.kisspng.com/20180323/gfw/kisspng-mr-potato-head-toy-story-potato-5ab50f15e70ae3.6255587515218153179464.jpg",
+      "image": "https://vignette.wikia.nocookie.net/universe-of-smash-bros-lawl/images/d/d8/Mr-potato-head-toy-story.gif/revision/latest?cb=20151129131217",
       "likes": 1
     },
     {
       "id": 4,
       "name": "Slinky Dog",
       "inCollection": false,
-      "image": "https://banner2.kisspng.com/20180511/iaq/kisspng-slinky-dog-toy-story-mr-potato-head-sheriff-woody-5af5a754e600d5.0801113915260485969421.jpg",
+      "image": "https://www.freeiconspng.com/uploads/slinky-png-transparent-1.png",
       "likes": 0
     },
     {
       "id": 5,
       "name": "Rex",
       "inCollection": false,
-      "image": "https://banner2.kisspng.com/20180328/zxw/kisspng-jessie-buzz-lightyear-sheriff-woody-rex-toy-story-toy-story-5abbfcbfdf0191.0779588015222693759134.jpg",
+      "image": "http://umich.edu/~chemh215/W11HTML/SSG5/ssg5.2/FRex.png",
       "likes": 0
     },
     {

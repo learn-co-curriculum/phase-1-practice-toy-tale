@@ -6,7 +6,7 @@ body {
 #toy-header {
   display: flex;
   justify-content: center;
-  background: lightsteelblue;
+  background: #515DA2;
   opacity: .8;
   height: 7rem;
   padding: 1rem;
@@ -15,4 +15,42 @@ body {
 #toy-header img {
   height: 6rem;
   width: auto;
+}
+
+#toy-collection {
+  margin: 2rem;
+}
+
+.card {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 15rem;
+  height: 25rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px #e04b52
+}
+
+.toy-avatar {
+  height: auto;
+  width: 80%;
+}
+
+button {
+  position: relative;
+  background-color: #e04b52;
+  border: none;
+  border-radius: 5px;
+  height: 3rem;
+  width: max-content;
+  color: whitesmoke;
+  font-size: 18px;
+}
+
+button:hover {
+  background-color: whitesmoke;
+  top: 3px;
+  border: #e04b52 solid 1px;
+  color: #e04b52;
 }
