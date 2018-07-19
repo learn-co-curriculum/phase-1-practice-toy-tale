@@ -30,12 +30,14 @@ Each card should have the following child elements:
 
 After all if that - the toy card should resemble:
 
-  ```<div class="card" >
+  ```
+  <div class="card" >
     <h2>Woody</h2>
     <img src=tot_image_url class="toy-avatar">
     <p>4 Likes <p>
     <button>Like <3</button>
-  </div>```
+  </div>
+  ```
 
 #STEP 4: Increase toy's likes!
 
