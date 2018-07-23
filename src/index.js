@@ -1,8 +1,8 @@
-// YOUR CODE HERE
-
 const addBtn = document.querySelector('#new-toy-btn')
 const toyForm = document.querySelector('.container')
 let addToy = false
+
+// YOUR CODE HERE
 
 addBtn.addEventListener('click', () => {
   // hide & seek with the form
@@ -14,3 +14,6 @@ addBtn.addEventListener('click', () => {
     toyForm.style.display = 'none'
   }
 })
+
+
+// OR HERE!
