@@ -13,7 +13,6 @@ All of the toy data is stored in the db.json file. You'll want to access this da
 This will create a server storing all of our lost toy data with restful routes at http://localhost:3000/toys.
 You can also check out http://localhost:3000/toys/:id
 
-
 #STEP 2: Fetch Andy's Toys!
 
 On the index.html page, there is a div with the id "toy-collection"
@@ -31,15 +30,32 @@ Each card should have the following child elements:
 After all if that - the toy card should resemble:
 
   ```
-  <div class="card" >
+  <div class="card">
     <h2>Woody</h2>
     <img src=tot_image_url class="toy-avatar">
     <p>4 Likes <p>
-    <button>Like <3</button>
+    <button class="like-btn">Like <3</button>
   </div>
   ```
 
-#STEP 4: Increase toy's likes!
+#STEP 4: Add a new toy!
+
+<!-- modal -->
+
+* When a user clicks on the add new toy button - a POST request is sent to http://localhost:3000/toys and the new toy is added to Andy's Toy Collection.
+* The toy should conditionally render to the page.
+* An example toy to add:
+
+```
+{
+  "name": "Jessie",
+  "image": "https://vignette.wikia.nocookie.net/p__/images/8/88/Jessie_Toy_Story_3.png/revision/latest?cb=20161023024601&path-prefix=protagonist",
+  "likes": 0
+}
+```
+
+
+#STEP 5: Increase toy's likes!
 
 When a user clicks on a toy's like button, two things should happen:
   * Conditionally increase the toy's like count
