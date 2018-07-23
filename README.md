@@ -8,9 +8,10 @@ Help Andy recover their toys and get the toys back in the toy collection.
 ## STEP 1: Create your server!
 
 All of the toy data is stored in the db.json file. You'll want to access this data using a json server. In order to do this, run the following two commands:
-    * npm install -g json-server
-    * json-server --watch db.json
-This will create a server storing all of our lost toy data with restful routes at http://localhost:3000/toys.
+   * npm install -g json-server
+   * json-server --watch db.json
+   
+##### This will create a server storing all of our lost toy data with restful routes at http://localhost:3000/toys.
 You can also check out http://localhost:3000/toys/:id
 
 ## STEP 2: Fetch Andy's Toys!
