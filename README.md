@@ -40,8 +40,6 @@ After all if that - the toy card should resemble:
 
 #STEP 4: Add a new toy!
 
-<!-- modal -->
-
 * When a user clicks on the add new toy button - a POST request is sent to http://localhost:3000/toys and the new toy is added to Andy's Toy Collection.
 * The toy should conditionally render to the page.
 * An example toy to add:
@@ -53,7 +51,6 @@ After all if that - the toy card should resemble:
   "likes": 0
 }
 ```
-
 
 #STEP 5: Increase toy's likes!
 
