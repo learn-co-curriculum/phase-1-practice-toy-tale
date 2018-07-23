@@ -1,26 +1,26 @@
-#Toy Tale
+# Toy Tale
 You got a friend in need!
 
 Your friend Andy recently misplaced all their toys!
 
 Help Andy recover their toys and get the toys back in the toy collection.
 
-#STEP 1: Create your server!
+## STEP 1: Create your server!
 
 All of the toy data is stored in the db.json file. You'll want to access this data using a json server. In order to do this, run the following two commands:
-  * npm install -g json-server
-  * json-server --watch db.json
-
+   * npm install -g json-server
+   * json-server --watch db.json
+   
 ##### This will create a server storing all of our lost toy data with restful routes at http://localhost:3000/toys.
 You can also check out http://localhost:3000/toys/:id
 
-#STEP 2: Fetch Andy's Toys!
+## STEP 2: Fetch Andy's Toys!
 
 On the index.html page, there is a div with the id "toy-collection"
 
 When the page loads, make a 'GET' request to fetch all the toy objects. With the response data, make a `<div class="card">` for each toy and add it to the toy-collection div.
 
-#STEP 3: Add toy info the the card!
+## STEP 3: Add toy info the the card!
 
 Each card should have the following child elements:
   * h2 tag with the toy's name
@@ -39,7 +39,7 @@ After all if that - the toy card should resemble:
   </div>
   ```
 
-#STEP 4: Add a new toy!
+## STEP 4: Add a new toy!
 
 * When a user clicks on the add new toy button - a POST request is sent to http://localhost:3000/toys and the new toy is added to Andy's Toy Collection.
 * The toy should conditionally render to the page.
@@ -53,8 +53,7 @@ After all if that - the toy card should resemble:
 }
 ```
 
-
-#STEP 5: Increase toy's likes!
+## STEP 5: Increase toy's likes!
 
 When a user clicks on a toy's like button, two things should happen:
   * Conditionally increase the toy's like count
