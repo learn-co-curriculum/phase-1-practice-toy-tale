@@ -26,7 +26,7 @@ Each card should have the following child elements:
   * h2 tag with the toy's name
   * image tag with the src of the toy's image attribute - needs a class name of "toy-avatar"
   * p tag with how many likes that toy has
-  * button tag with an class of "like"
+  * button tag with an class of "like-btn"
 
 After all if that - the toy card should resemble:
 
