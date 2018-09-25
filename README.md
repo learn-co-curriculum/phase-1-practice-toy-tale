@@ -43,9 +43,17 @@ After all if that - the toy card should resemble:
 
 * When a user clicks on the add new toy button - a POST request is sent to http://localhost:3000/toys and the new toy is added to Andy's Toy Collection.
 * The toy should conditionally render to the page.
-* An example toy to add:
+* In order to send a POST request via Fetch, give the Fetch a second argument of an object. This object should specify the method as `POST` and also provide the appropriate headers and the JSONified data for the request. If your request isn't working, make sure your header and keys match the documentation.
 
 ```
+POST http://localhost:3000/toys
+headers: 
+{
+  "Content-Type": "application/json",
+  Accept: "application/json"
+}
+
+body:
 {
   "name": "Jessie",
   "image": "https://vignette.wikia.nocookie.net/p__/images/8/88/Jessie_Toy_Story_3.png/revision/latest?cb=20161023024601&path-prefix=protagonist",
@@ -53,8 +61,25 @@ After all if that - the toy card should resemble:
 }
 ```
 
+* For examples, refer to the [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options).
+
 ## STEP 5: Increase toy's likes!
 
 When a user clicks on a toy's like button, two things should happen:
   * Conditionally increase the toy's like count
   * Send a patch request to the server at http://localhost:3000/toys/:id updating the number of likes that the specific toy has
+  * Headers and body are provided below. If your request isn't working, make sure your header and keys match the documentation.
+  
+```
+PATCH http://localhost:3000/toys/:id
+headers: 
+{
+  "Content-Type": "application/json",
+  Accept: "application/json"
+}
+
+body:
+{
+  "likes": <new number>
+}
+```
