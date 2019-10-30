@@ -30,7 +30,7 @@ Each card should have the following child elements:
   * `h2` tag with the toy's name
   * `img` tag with the `src` of the toy's image attribute and the class name "toy-avatar"
   * `p` tag with how many likes that toy has
-  * `button` tag with an class "like-btn"
+  * `button` tag with a class "like-btn"
 
 After all of that, the toy card should resemble:
 
@@ -57,12 +57,11 @@ headers:
   Accept: "application/json"
 }
 
-body:
-{
+body: JSON.stringify({
   "name": "Jessie",
   "image": "https://vignette.wikia.nocookie.net/p__/images/8/88/Jessie_Toy_Story_3.png/revision/latest?cb=20161023024601&path-prefix=protagonist",
   "likes": 0
-}
+})
 ```
 
 * For examples, refer to the [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options).
@@ -83,8 +82,7 @@ headers:
   Accept: "application/json"
 }
 
-body:
-{
+body: JSON.stringify({
   "likes": <new number>
-}
+})
 ```
