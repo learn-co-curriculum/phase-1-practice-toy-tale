@@ -2,14 +2,14 @@ let addToy = false;
 
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
-  const toyForm = document.querySelector(".container");
+  const toyFormContainer = document.querySelector(".container");
   addBtn.addEventListener("click", () => {
     // hide & seek with the form
     addToy = !addToy;
     if (addToy) {
-      toyForm.style.display = "block";
+      toyFormContainer.style.display = "block";
     } else {
-      toyForm.style.display = "none";
+      toyFormContainer.style.display = "none";
     }
   });
 });
