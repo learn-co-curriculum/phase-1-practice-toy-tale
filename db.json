@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 11
+      "likes": 5
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "id": 3,
       "name": "Mr. Potato Head",
       "image": "https://vignette.wikia.nocookie.net/universe-of-smash-bros-lawl/images/d/d8/Mr-potato-head-toy-story.gif/revision/latest?cb=20151129131217",
-      "likes": 9
+      "likes": 3
     },
     {
       "id": 4,
@@ -47,21 +47,6 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": -2
-    },
-    {
-      "name": "New Toy",
-      "image": "test toy",
-      "id": 9
-    },
-    {
-      "name": "new new",
-      "image": "toy toy",
-      "id": 10
-    },
-    {
-      "name": "cool cat",
-      "image": "https://kidscreen.com/wp/wp-content/uploads/2018/02/wickedcooltoys.jpg",
-      "id": 11
     }
   ]
 }
