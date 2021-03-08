@@ -75,14 +75,15 @@ body: JSON.stringify({
 
 When a user clicks on a toy's like button, two things should happen:
 
-* Conditional increase to the toy's like count without reloading the page
-* A patch request sent to the server at `http://localhost:3000/toys/:id`
-  updating the number of likes that the specific toy has
-* Headers and body are provided below (If your request isn't working, make sure
-  your header and keys match the documentation.)
+* A `patch` request (i.e., `method: "PATCH"`) should be sent to the server at
+  `http://localhost:3000/toys/:id`, updating the number of likes that the
+  specific toy has
+* If the patch is successful, the toy's like count should be updated in the DOM
+  without reloading the page
+
+The headers and body should look something like this:
   
 ```js
-PATCH http://localhost:3000/toys/:id
 headers: 
 {
   "Content-Type": "application/json",
@@ -93,3 +94,6 @@ body: JSON.stringify({
   "likes": <new number>
 })
 ```
+
+If your request isn't working, make sure your headers and keys match the
+documentation.
