@@ -45,17 +45,19 @@ After all of that, the toy card should resemble:
 
 ## Add a New Toy
 
-* When a user submits the toy form, a `POST` request is sent to
-  `http://localhost:3000/toys` and the new toy is added to Andy's Toy
-  Collection.
-* The toy should conditionally render to the page.
-* In order to send a POST request via Fetch, give the Fetch a second argument of
-  an object. This object should specify the method as `POST` and also provide
-  the appropriate headers and the JSON-ified data for the request. If your
-  request isn't working, make sure your header and keys match the documentation.
+When a user submits the toy form, two things should happen:
+
+* a `POST` request should be sent to `http://localhost:3000/toys` and the new
+  toy added to Andy's Toy Collection.
+* If the post is successful, the toy should be added to the DOM without
+  reloading the page.
+
+In order to send a POST request via Fetch, give the Fetch a second argument of
+an object. This object should specify the method as `POST` and also provide the
+appropriate headers and the JSON-ified data for the request. The headers and
+body should look something like this:
 
 ```js
-POST http://localhost:3000/toys
 headers: 
 {
   "Content-Type": "application/json",
@@ -69,7 +71,7 @@ body: JSON.stringify({
 })
 ```
 
-* For examples, refer to the [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options).
+For examples, refer to the [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options).
 
 ## Increase Toy's Likes
 
