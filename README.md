@@ -141,7 +141,7 @@ button. When the button is clicked for a toy, your code should:
 1) capture that toy's id,
 2) calculate the new number of likes,
 3) submit the `patch` request, and
-4) update the toy's card in the DOM based on the `response` returned by the
+4) update the toy's card in the DOM based on the `Response` returned by the
    fetch request.
 
 The headers and body should look something like this:
@@ -170,7 +170,7 @@ If your request isn't working, make sure your headers and keys match the
 > will be on the "Create Toy" button, which is provided in the app's
 > `index.html` file. The second one, however, will be on the "Likes" button on
 > each individual toy card. Given that the toy cards will be rendered to the DOM
-> dynamically from the response returned by the `fetch` "GET" request, think
+> dynamically from the `Response` returned by the `fetch` "GET" request, think
 > about **when** it makes sense to add the event listener to each toy's "Like"
 > button.
 
@@ -180,6 +180,7 @@ Once you get everything working, take a moment to appreciate how far you've
 come. You now have the skills needed to respond to user events, persist changes
 to a database, and manipulate the DOM in response. You have created your first
 fully-functioning web app that combines all three of the pillars.
+
 Congratulations!
 
 [fetch docs]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options
