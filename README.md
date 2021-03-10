@@ -18,7 +18,7 @@ need to pull together everything you've learned about manipulating the DOM,
 responding to events, and communicating with the server. Specifically, you will
 need to:
 
-1) Access the list of toys from an API (mocked using Json Server) and render
+1) Access the list of toys from an API (mocked using JSON Server) and render
    each of them in a "card" on the page
 2) Hook up a form that enables users to add new toys. Create an event listener
    so that, when the form is submitted, the new toy is persisted to the database
@@ -43,7 +43,7 @@ data using a JSON server. Run `json-server --watch db.json` to start the server.
 
 This will create a server storing all of our lost toy data with restful routes
 at `http://localhost:3000/toys`. You can also check out the information for
-each individual toy at `http://localhost:3000/toys/:id`
+each individual toy at `http://localhost:3000/toys/:id`.
 
 > **Note:** we are using `:id` here as a variable value that indicates the path
 > to a specific toy. To navigate (or send a request) to that path, the `id`
@@ -173,5 +173,13 @@ If your request isn't working, make sure your headers and keys match the
 > dynamically from the response returned by the `fetch` "GET" request, think
 > about **when** it makes sense to add the event listener to each toy's "Like"
 > button.
+
+## Conclusion
+
+Once you get everything working, take a moment to appreciate how far you've
+come. You now have the skills needed to respond to user events, persist changes
+to a database, and manipulate the DOM in response. You have created your first
+fully-functioning web app that combines all three of the pillars.
+Congratulations!
 
 [fetch docs]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options
