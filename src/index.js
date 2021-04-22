@@ -37,9 +37,12 @@ function cardRender(toy){
   `
 const button = document.createElement("button")
 button.innerText = "Like"
+//Needs work
+button.id = "cardsButton"
+button.addEventListener('click', ()=>{
+  let likes = toy.likes.value
+  return likes++
+})
 collection.appendChild(card)
 card.appendChild(button)
-return button
 }
-//document.addEventListener('click' , )
-console.log(button)
