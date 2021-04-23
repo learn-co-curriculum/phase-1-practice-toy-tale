@@ -11,7 +11,29 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       toyFormContainer.style.display = "none";
     }
-  });
+  }),
+document.addEventListener('submit', () => {
+
+const newToyImg = document.querySelector('input#image')
+console.log(newToyImg)
+const newToyName = document.querySelector('input#name')
+
+
+fetch("http://localhost:3000/toys", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify({
+    "name":newToyName.value,
+    "image":newToyImg.value,
+    "likes": 0
+  })
+})
+.then(resp => resp.json())
+.then(toyX => cardRender(toyX))
+});
 });
 //Rendering the API data to webpage
 
@@ -42,26 +64,8 @@ function cardRender(toy){
   `
   collection.appendChild(card);  card.appendChild(button)
 }
+const form = document.querySelector('form')
 
-const newToyImg = document.querySelector('input#image')
-console.log(newToyImg.value)
-const newToyName = document.querySelector('input#name')
-
-
-fetch("http://localhost:3000/toys", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    "Accept": "application/json"
-  },
-  body: JSON.stringify({
-    "name":newToyName.value,
-    "image":newToyImg.value,
-    "likes": 0
-  })
-})
-.then(resp => resp.json())
-.then(toyX => cardRender(toyX))
 
 // function renderNewToy(toyX){
 //   const card = document.createElement("a")
