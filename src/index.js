@@ -30,19 +30,52 @@ function cardRender(toy){
   const card = document.createElement("a")
   const collection = document.getElementById('toy-collection')
   card.className = 'card'
+
+  const button = document.createElement("button")
+  button.innerText = "Like"
+  button.id = "cardsButton"
+  
   card.innerHTML = `
   <h2> ${toy.name} </h2>
   <img src="${toy.image}" class="toy-avatar"/>
   <p> Likes = ${toy.likes} </p>
   `
-const button = document.createElement("button")
-button.innerText = "Like"
-//Needs work
-button.id = "cardsButton"
-button.addEventListener('click', ()=>{
-  let likes = toy.likes.value
-  return likes++
+  collection.appendChild(card);  card.appendChild(button)
+}
+
+const newToyImg = document.querySelector('#input.name')
+
+const newToyName = document.querySelector('#input.image')
+
+
+fetch("http://localhost:3000/toys/", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify({
+    "name":`${newToyName.value}`,
+    "image":`${newToyImg.value}`,
+    "likes": 0
+  })
 })
-collection.appendChild(card)
-card.appendChild(button)
+.then(resp => resp.json())
+.then(toyX => renderNewToy(toyX))
+
+function renderNewToy(toyX){
+  const card = document.createElement("a")
+  const collection = document.getElementById('toy-collection')
+  card.className = 'card'
+
+  const button = document.createElement("button")
+  button.innerText = "Like"
+  button.id = "cardsButton"
+  
+  card.innerHTML = `
+  <h2> ${toy.name} </h2>
+  <img src="${toy.image}" class="toy-avatar"/>
+  <p> Likes = ${toy.likes} </p>
+  `
+  collection.appendChild(card);  card.appendChild(button)
 }
