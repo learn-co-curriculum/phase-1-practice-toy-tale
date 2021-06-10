@@ -1,4 +1,4 @@
-# Challenge: Toy Tale
+# Additional Practice: Toy Tale
 
 ## Learning Goals
 
