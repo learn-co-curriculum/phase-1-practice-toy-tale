@@ -41,6 +41,15 @@ in the browser.
 All of the toy data is stored in the `db.json` file. You'll want to access this
 data using a JSON server. Run `json-server --watch db.json` to start the server.
 
+> **Note**: For users of the [Live Server VSCode extension][live-server], if the 
+> page is reloading when you initiate a fetch request, you'll need to 
+> set up some additional configuration for Live Server to play nicely with 
+> `json-server`. Follow the steps in [this gist][live-server settings] (you'll 
+> only need to do this once), then come back to this lesson.
+
+[live-server]: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+[live-server settings]: https://gist.github.com/ihollander/cc5f36c6447d15dea6a16f68d82aacf7
+
 This will create a server storing all of our lost toy data with restful routes
 at `http://localhost:3000/toys`. You can also check out the information for
 each individual toy at `http://localhost:3000/toys/:id`.
