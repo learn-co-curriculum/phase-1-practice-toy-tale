@@ -2,12 +2,12 @@
 
 ## Learning Goals
 
-* Set up event listeners to respond to user events
-* Use `fetch()` to make a "GET" request, then render the returned toys to the
+- Set up event listeners to respond to user events
+- Use `fetch()` to make a "GET" request, then render the returned toys to the
   DOM
-* Use `fetch()` to make a "POST" request to create a new toy, then add it to the
+- Use `fetch()` to make a "POST" request to create a new toy, then add it to the
   DOM
-* Use `fetch()` to make a "PATCH" request that updates an existing toy, then
+- Use `fetch()` to make a "PATCH" request that updates an existing toy, then
   render the updated information to the DOM
 
 ## Introduction
@@ -18,12 +18,12 @@ need to pull together everything you've learned about manipulating the DOM,
 responding to events, and communicating with the server. Specifically, you will
 need to:
 
-1) Access the list of toys from an API (mocked using JSON Server) and render
+1. Access the list of toys from an API (mocked using JSON Server) and render
    each of them in a "card" on the page
-2) Hook up a form that enables users to add new toys. Create an event listener
+2. Hook up a form that enables users to add new toys. Create an event listener
    so that, when the form is submitted, the new toy is persisted to the database
    and a new card showing the toy is added to the DOM
-3) Create an event listener that gives users the ability to click a button to
+3. Create an event listener that gives users the ability to click a button to
    "like" a toy. When the button is clicked, the number of likes should be
    updated in the database and the updated information should be rendered to the
    DOM
@@ -33,26 +33,28 @@ The final product should look like this:
 ![Toy Tale working app](https://curriculum-content.s3.amazonaws.com/phase-1/communicating-with-the-server/toy_tale.gif)
 
 > **Note**: this lab does not contain tests. You will be working from the
-requirements described below and verifying that your code is working correctly
-in the browser.
+> requirements described below and verifying that your code is working correctly
+> in the browser.
 
 ## Start Up the Server
 
 All of the toy data is stored in the `db.json` file. You'll want to access this
 data using a JSON server. Run `json-server --watch db.json` to start the server.
 
-> **Note**: For users of the [Live Server VSCode extension][live-server], if the 
-> page is reloading when you initiate a fetch request, you'll need to 
-> set up some additional configuration for Live Server to play nicely with 
-> `json-server`. Follow the steps in [this gist][live-server settings] (you'll 
+> **Note**: For users of the [Live Server VSCode extension][live-server], if the
+> page is reloading when you initiate a fetch request, you'll need to set up
+> some additional configuration for Live Server to play nicely with
+> `json-server`. Follow the steps in [this gist][live-server settings] (you'll
 > only need to do this once), then come back to this lesson.
 
-[live-server]: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
-[live-server settings]: https://gist.github.com/ihollander/cc5f36c6447d15dea6a16f68d82aacf7
+[live-server]:
+  https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+[live-server settings]:
+  https://gist.github.com/ihollander/cc5f36c6447d15dea6a16f68d82aacf7
 
 This will create a server storing all of our lost toy data with restful routes
-at `http://localhost:3000/toys`. You can also check out the information for
-each individual toy at `http://localhost:3000/toys/:id`.
+at `http://localhost:3000/toys`. You can also check out the information for each
+individual toy at `http://localhost:3000/toys/:id`.
 
 > **Note:** we are using `:id` here as a variable value that indicates the path
 > to a specific toy. To navigate (or send a request) to that path, the `id`
@@ -84,38 +86,40 @@ toy-collection `div`.
 
 Each card should have the following child elements:
 
-* `h2` tag with the toy's name
-* `img` tag with the `src` of the toy's image attribute and the class name "toy-avatar"
-* `p` tag with how many likes that toy has
-* `button` tag with a class "like-btn" and an id attribute set to the toy's id number
+- `h2` tag with the toy's name
+- `img` tag with the `src` of the toy's image attribute and the class name
+  "toy-avatar"
+- `p` tag with how many likes that toy has
+- `button` tag with a class "like-btn" and an id attribute set to the toy's id
+  number
 
 After all of that, the toy card should look something like this:
 
 ```html
-  <div class="card">
-    <h2>Woody</h2>
-    <img src="[toy_image_url]" class="toy-avatar" />
-    <p>4 Likes </p>
-    <button class="like-btn" id="[toy_id]">Like <3</button>
-  </div>
+<div class="card">
+  <h2>Woody</h2>
+  <img src="[toy_image_url]" class="toy-avatar" />
+  <p>4 Likes</p>
+  <button class="like-btn" id="[toy_id]">Like ❤️</button>
+</div>
 ```
 
 ### Add a New Toy
 
 When a user submits the toy form, two things should happen:
 
-* A `POST` request should be sent to `http://localhost:3000/toys` and the new
+- A `POST` request should be sent to `http://localhost:3000/toys` and the new
   toy added to Andy's Toy Collection.
-* If the post is successful, the toy should be added to the DOM without
+- If the post is successful, the toy should be added to the DOM without
   reloading the page.
 
 In order to send a POST request via `fetch()`, give the `fetch()` a second
 argument of an object. This object should specify the method as `POST` and also
-provide the appropriate headers and the JSON-ified data for the request. The
-headers and body should look something like this:
+provide the appropriate headers and the JSON data for the request. The headers
+and body should look something like this:
 
 ```js
-headers: 
+headers:
 {
   "Content-Type": "application/json",
   Accept: "application/json"
@@ -134,10 +138,10 @@ For examples, refer to the [documentation][fetch docs].
 
 When a user clicks on a toy's like button, two things should happen:
 
-* A `patch` request (i.e., `method: "PATCH"`) should be sent to the server at
+- A `patch` request (i.e., `method: "PATCH"`) should be sent to the server at
   `http://localhost:3000/toys/:id`, updating the number of likes that the
   specific toy has
-* If the patch is successful, the toy's like count should be updated in the DOM
+- If the patch is successful, the toy's like count should be updated in the DOM
   without reloading the page
 
 The `patch` request enables us to **update** an existing toy. The request will
@@ -147,23 +151,23 @@ look very similar to our "POST" request **except** that we need to include the
 To get this working, you will need to add an event listener to each toy's "Like"
 button. When the button is clicked for a toy, your code should:
 
-1) capture that toy's id,
-2) calculate the new number of likes,
-3) submit the `patch` request, and
-4) update the toy's card in the DOM based on the `Response` returned by the
+1. capture that toy's id,
+2. calculate the new number of likes,
+3. submit the `patch` request, and
+4. update the toy's card in the DOM based on the `Response` returned by the
    fetch request.
 
 The headers and body should look something like this:
-  
+
 ```js
-headers: 
+headers:
 {
   "Content-Type": "application/json",
   Accept: "application/json"
 }
 
 body: JSON.stringify({
-  "likes": <new number>
+  "likes": newNumberOfLikes
 })
 ```
 
@@ -192,4 +196,5 @@ fully-functioning web app that combines all three of the pillars.
 
 Congratulations!
 
-[fetch docs]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options
+[fetch docs]:
+  https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options
