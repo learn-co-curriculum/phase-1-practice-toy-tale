@@ -1,4 +1,4 @@
-# Additional Practice: Toy Tale
+# Toy Tale
 
 ## Learning Goals
 
