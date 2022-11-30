@@ -50,7 +50,7 @@ function createToyCard(toy) {
     const toyLikes = document.createElement("p");
     const likeButton = document.createElement("button");
 
-    // insert content and/or apply class names to elements
+    // insert content and/or apply class names and IDs to elements
     toyCard.className = "card";
     toyName.innerText = toy.name;
     toyImg.src = toy.image;
@@ -68,7 +68,7 @@ function createToyCard(toy) {
 
 function addNewToy() {
     // create a new object (same shape as toy objects in DB)
-    // grabs form inputs with .value
+    // grab form inputs with .value
     // "id" key not included because DB adds it automatically
     const newToy = {
         "name": document.getElementById("new-name").value,
@@ -77,7 +77,6 @@ function addNewToy() {
     };
 
     // send a fetch POST request to toys endpoint
-    
     fetch("http://localhost:3000/toys", {
         method: "POST",
         headers: {
@@ -86,7 +85,7 @@ function addNewToy() {
         // the body of the request is the newToy object just created
         body: JSON.stringify(newToy)
     })
-    .then(res => res.json())
+        .then(res => res.json())
         // after the fetch, create a toy card for the new toy
         .then(toy => createToyCard(toy))
 }
