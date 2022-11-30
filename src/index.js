@@ -1,21 +1,17 @@
-// 1. fetch toys
-// fetch GET request
-
-// 2. add toy info to the card
-// for each toy in toys array:
-// create new div with class "card"
-// append that card to "#toy-collection" div
-
-
+// once the DOM Content loads...
 document.addEventListener("DOMContentLoaded", () => {
-    displayAddToyForm();
+    // set up the add toy form
+    buildAddToyForm();
 
+    // fetch toys
     fetch("http://localhost:3000/toys")
         .then(response => response.json())
+        // once toys are fetched, render a card for each toy by calling createToyCard()
         .then(toys => toys.forEach(toy => createToyCard(toy)))
 });
 
-function displayAddToyForm() {
+function buildAddToyForm() {
+    // starter code for the form display:
     const addBtn = document.querySelector("#new-toy-btn");
     const toyFormContainer = document.querySelector(".container");
     const toyForm = document.querySelector("#add-toy-form");
@@ -32,50 +28,45 @@ function displayAddToyForm() {
         }
     });
 
+    // add submit event listener to form
     toyForm.addEventListener("submit", (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         // on submit, the form triggers the addNewToy function
-        addNewToy()
-        
-        fetch("http://localhost:3000/toys")
-        .then(response => response.json())
-        .then(toys => toys.forEach((toy) => createToyCard(toy)))
+        addNewToy();
 
-        toyForm.reset()
+        // reset form inputs to empty
+        toyForm.reset();
     })
 }
 
 function createToyCard(toy) {
-    const toyCard = document.createElement("div")
-    const toyCollection = document.getElementById("toy-collection")
-    const toyName = document.createElement("h2")
-    const toyImg = document.createElement("img")
-    const toyLikes = document.createElement("p")
-    const likeButton = document.createElement("button")
+    // create div for toy card
+    // create elements for header, image, etc
+    const toyCard = document.createElement("div");
+    const toyCollection = document.getElementById("toy-collection");
+    const toyName = document.createElement("h2");
+    const toyImg = document.createElement("img");
+    const toyLikes = document.createElement("p");
+    const likeButton = document.createElement("button");
 
-    toyCard.className = "card"
-    toyName.innerText = toy.name
-    toyImg.src = toy.image
-    toyImg.className = "toy-avatar"
-    toyLikes.innerText = `Likes: ${toy.likes}`
-    likeButton.className = "like-btn"
-    likeButton.innerText = "Like ❤️"
-    likeButton.id = toy.id
+    // insert content and/or apply class names to elements
+    toyCard.className = "card";
+    toyName.innerText = toy.name;
+    toyImg.src = toy.image;
+    toyImg.className = "toy-avatar";
+    toyLikes.innerText = `Likes: ${toy.likes}`;
+    likeButton.className = "like-btn";
+    likeButton.innerText = "Like ❤️";
+    likeButton.id = toy.id;
 
-    toyCard.append(toyName, toyImg, toyLikes, likeButton)
-    toyCollection.append(toyCard)
+    // append elements to card
+    // append card to collection
+    toyCard.append(toyName, toyImg, toyLikes, likeButton);
+    toyCollection.append(toyCard);
 }
 
-// 3. add new toy to db and display it without reloading page
-// 3a. POST to db
-//// target the new toy form & add event listener
-//// grab new toy form input
-//// create new object from that input
-//// POST that new object to db.json
-// 3b. createToyCard() again with new toy
-
-function addNewToy(toyInfo) {
+function addNewToy() {
     // create a new object (same shape as toy objects in DB)
     // grabs form inputs with .value
     // "id" key not included because DB adds it automatically
@@ -83,20 +74,19 @@ function addNewToy(toyInfo) {
         "name": document.getElementById("new-name").value,
         "image": document.getElementById("new-image").value,
         "likes": 0
-    }
+    };
 
     // send a fetch POST request to toys endpoint
-    // the body of the request is the newToy object just created
-
-
+    
     fetch("http://localhost:3000/toys", {
         method: "POST",
         headers: {
-        'content-type': 'application/json'
+            'content-type': 'application/json'
         },
+        // the body of the request is the newToy object just created
         body: JSON.stringify(newToy)
     })
-    // after the fetch, create a toy card for the new toy
-        .then(res => res.json())
+    .then(res => res.json())
+        // after the fetch, create a toy card for the new toy
         .then(toy => createToyCard(toy))
 }
