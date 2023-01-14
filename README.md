@@ -32,9 +32,14 @@ The final product should look like this:
 
 ![Toy Tale working app](https://curriculum-content.s3.amazonaws.com/phase-1/communicating-with-the-server/toy_tale.gif)
 
-> **Note**: this lab does not contain tests. You will be working from the
-> requirements described below and verifying that your code is working correctly
-> in the browser.
+Note that this lab **does not contain tests**. You will be working from the
+requirements described below and verifying that your code is working correctly
+in the browser.
+
+Once you're done, be sure to commit and push your code up to GitHub, then submit
+the assignment using CodeGrade. Even though this practice lab does not have
+tests, it must still be submitted through CodeGrade in order to be marked as
+complete in Canvas.
 
 ## Start Up the Server
 
