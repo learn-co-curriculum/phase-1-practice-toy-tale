@@ -8,7 +8,8 @@
 - Use `fetch()` to make a "POST" request to create a new toy, then add it to the
   DOM
 - Use `fetch()` to make a "PATCH" request that updates an existing toy, then
-  render the updated information to the
+  render the updated information to the DOM
+
 ## Introduction
 
 You've got a friend in need! Your friend Andy recently misplaced all his toys!
