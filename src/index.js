@@ -1,6 +1,22 @@
 const toysUrl = "http://localhost:3000/toys"
 const divNotOnToysPage = document.querySelector('#toy-collection')
 
+const newToyForm = document.querySelector('.add-toy-form')
+
+newToyForm.addEventListener('submit', e => {
+  e.preventDefault()
+  const newName = e.target.name.value
+  const newImage = e.target.image.value
+  const newLikes = 0
+
+  const newToy = {
+    name: newName,
+    image: newImage,
+    likes: newLikes
+  }
+  renderToyCard(newToy)
+})
+
 let addToy = false;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -62,16 +78,4 @@ function updateLikes(likeButtonObject) {
   const stringSplitToArray = previousLikes.split(' ')
   ++stringSplitToArray[0]
   likesContainer.innerText = stringSplitToArray.join (' ')
-  
-  fetch(toysUrl, {
-    method: "PATCH",
-    headers: 
-      {
-      "Content-Type": "application/json", 
-       Accept: "application/json"
-      },
-      body: JSON.stringify({
-      "likes": newNumberOfLikes
-      })
-      })
       }
