@@ -17,19 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// function upDateLikesCounter() {
-//   fetch(toysUrl, {
-//     method: "POST",
-//     headers: 
-//     {
-//       "Content-Type": "application/json", 
-//       Accept: "application/json"
-//     },
-//     body: JSON.stringify({
-//       "likes": newNumberOfLikes
-//     })
-//  })
-//  }
+
+function fetchToys() {
+  fetch(toysUrl)
+  .then(r => r.json())
+  .then(data => renderToy(data))
+
+}
+fetchToys()
 
 function renderToy(toys) {
   toys.forEach((toy) => renderToyCard(toy))
@@ -47,46 +42,36 @@ function renderToyCard(toy) {
   img.src = toy.image
 
   const p = document.createElement('p')
-  p.textContent = toy.likes
+  p.textContent = toy.likes + ' likes'
 
   const button = document.createElement('button')
   button.className = 'like-btn'
   button.id = toy.id
-  button.innerText = 'Like'
+  button.innerText = 'Like ❤️'
+  button.addEventListener('click', updateLikes)
   
   newCard.append(h2, img, p, button)
   divNotOnToysPage.append(newCard)
-}
-
-
-function fetchToys() {
-  fetch(toysUrl)
-  .then(Response => Response.json())
-  .then(data => renderToy(data))
 
 }
 
-fetchToys()
-
-document.addEventListener('click', (e) => {
-  const likeBtn = document.getElementsByClassName('like-btn')
-  const likesContainer = document.querySelector('div.card > p')
-  const currentToyId = t
-  const likeNumber = 
-  if()
-  let newNumberOfLikes = likesContainer.textContent++
-   function upDateLikesCounter() {
-    fetch(toysUrl, {
-      method: "POST",
-      headers: 
+function updateLikes(likeButtonObject) {
+  const theClickedCard = likeButtonObject.target.parentElement
+  const likesContainer = theClickedCard.querySelector('p')
+  const previousLikes = likesContainer.innerText
+  const stringSplitToArray = previousLikes.split(' ')
+  ++stringSplitToArray[0]
+  likesContainer.innerText = stringSplitToArray.join (' ')
+  
+  fetch(toysUrl, {
+    method: "PATCH",
+    headers: 
       {
-        "Content-Type": "application/json", 
-        Accept: "application/json"
+      "Content-Type": "application/json", 
+       Accept: "application/json"
       },
       body: JSON.stringify({
-        "likes": newNumberOfLikes
+      "likes": newNumberOfLikes
       })
-   })
-   }
-})
-//save for review
+      })
+      }
