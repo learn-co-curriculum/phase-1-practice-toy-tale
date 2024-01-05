@@ -12,7 +12,7 @@
 
 ## Introduction
 
-You've got a friend in need! Your friend Andy recently misplaced all their toys!
+You've got a friend in need! Your friend Andy recently misplaced all his toys!
 Let's write an app that helps Andy keep track of them. For this lab, you will
 need to pull together everything you've learned about manipulating the DOM,
 responding to events, and communicating with the server. Specifically, you will
