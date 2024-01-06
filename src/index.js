@@ -1,9 +1,19 @@
 const API = 'http://localhost:3000/toys'
 let addToy = false;
 
-document.addEventListener("DOMContentLoaded", () => {
+const formToAddToyHTMLCollection = document.getElementsByClassName('add-toy-form')
+const formToAddToyArray = Array.from(formToAddToyHTMLCollection)  
+const formToAddToyDiv = formToAddToyArray[0]
+console.log(formToAddToyDiv)
+
+document.addEventListener("DOMContentLoaded", (formToAddToyDiv) => {
   const addBtn = document.querySelector("#new-toy-btn");
-  const toyFormContainer = document.querySelector(".container");
+  const toyFormContainer = document.querySelector(".container"); 
+    fetch(API)
+    .then((r) => r.json())
+      .then((toys) => appendToyCard(toys))
+      .catch(console.error)
+  
   addBtn.addEventListener("click", () => {
     addToy = !addToy
     if (addToy) {
@@ -11,17 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       toyFormContainer.style.display = "none";
     }
-  });
+
+  })
 });
 
-
-function getToys() {
-  fetch(API)
-  .then((r) => r.json())
-  .then((toys) => appendToyCard(toys))
-  .catch(console.error)
-}
-
+formToAddToyDiv.addEventListener("submit", (e) => {
+  e.preventDefault()
+  console.log("formToAddtoyDiv:", e)
+  console.log(e.target[0].value)
+  console.log(e.target[1].value)
+  console.log(e.target[2].value)
+});
 
 function appendToyCard(toys) {
   const toysArray = toys.forEach((toy) => {
@@ -43,44 +53,17 @@ function appendToyCard(toys) {
 
 
 
-    toyCardDiv.append(toyNameH2)
-    toyCardDiv.append(toyImage)
-    toyCardDiv.append(toyCardLikesCount)
-    toyCardDiv.append(toyLikeButton)
+    toyCardDiv.append(toyNameH2, toyImage, toyCardLikesCount, toyLikeButton)
     toyCollectionDiv.append(toyCardDiv)
   })
 }
 
-const formToAddToyHTMLCollection = document.getElementsByClassName('add-toy-form')
-const formToAddToyArray = Array.from(formToAddToyHTMLCollection)  
-const formToAddToyDiv = formToAddToyArray[0]
-console.log(formToAddToyDiv)
 
 const addNewToy = () => {
-
+  console.log("Add new Toy!")
 
 }
 
-formToAddToyDiv.addEventListener("submit", (e) => {
-  e.preventDefault()
-  console.log(e)
-  console.log(e.target[0].value)
-  console.log(e.target[1].value)
-  console.log(e.target[2].value)
-})
 
 addNewToy()
-
-/* 
-
-<div class="card">
-  <h2>Woody</h2>
-  <img src="[toy_image_url]" class="toy-avatar" />
-  <p>4 Likes</p>
-  <button class="like-btn" id="[toy_id]">Like ❤️</button>
-</div>
-
-*/
-
-getToys()
 appendToyCard()
