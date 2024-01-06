@@ -4,9 +4,8 @@ let addToy = false;
 const formToAddToyHTMLCollection = document.getElementsByClassName('add-toy-form')
 const formToAddToyArray = Array.from(formToAddToyHTMLCollection)  
 const formToAddToyDiv = formToAddToyArray[0]
-console.log(formToAddToyDiv)
 
-document.addEventListener("DOMContentLoaded", (formToAddToyDiv) => {
+document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
   const toyFormContainer = document.querySelector(".container"); 
     fetch(API)
@@ -23,15 +22,34 @@ document.addEventListener("DOMContentLoaded", (formToAddToyDiv) => {
     }
 
   })
+
 });
 
-formToAddToyDiv.addEventListener("submit", (e) => {
-  e.preventDefault()
-  console.log("formToAddtoyDiv:", e)
-  console.log(e.target[0].value)
-  console.log(e.target[1].value)
-  console.log(e.target[2].value)
-});
+formToAddToyDiv.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = Object.fromEntries(new FormData(event.target))
+
+  // const data = {
+  //   toyName: event.target[0].value,
+  //   toyImage: event.target[1].value,
+  // }
+
+  console.log(data)
+  data.likes = 0;
+
+  fetch(API, {
+    method: "POST",
+    headers:
+    {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+    .then((r) => r.json())
+    .then((data) => console.log(data))
+  }) 
+
 
 function appendToyCard(toys) {
   const toysArray = toys.forEach((toy) => {
@@ -60,8 +78,7 @@ function appendToyCard(toys) {
 
 
 const addNewToy = () => {
-  console.log("Add new Toy!")
-
+  return 
 }
 
 

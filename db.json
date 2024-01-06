@@ -53,6 +53,12 @@
       "name": "James",
       "image": "https://cdn.britannica.com/34/197534-050-83C616C4/James-Brown-1991.jpg",
       "likes": 1000
+    },
+    {
+      "name": "Cat",
+      "image": "https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg",
+      "likes": 0,
+      "id": 10
     }
   ]
 }
