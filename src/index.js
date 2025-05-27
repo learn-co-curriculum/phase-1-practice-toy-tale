@@ -3,20 +3,22 @@ const url = "http://localhost:3000/toys"
 
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
-  const toyFormContainer = document.querySelector(".container");
   const toyForm = document.querySelector(".add-toy-form")
-  addBtn.addEventListener("click", () => {
-    // hide & seek with the form
-    addToy = !addToy;
-    if (addToy) {
-      toyFormContainer.style.display = "block";
-    } else {
-      toyFormContainer.style.display = "none";
-    }
-  });
+  addBtn.addEventListener("click", toggleToyFormVisibility);
   loadToys();
   toyForm.addEventListener('submit', createAndDisplayToy)
 });
+
+const toggleToyFormVisibility = () => {
+  const toyFormContainer = document.querySelector(".container");
+  // hide & seek with the form
+  addToy = !addToy;
+  if (addToy) {
+    toyFormContainer.style.display = "block";
+  } else {
+    toyFormContainer.style.display = "none";
+  }
+}
 
 const loadToys = () => {
   fetch(url)
@@ -27,6 +29,7 @@ const loadToys = () => {
 const createAndDisplayToy = (submitEvent) => {
   submitEvent.preventDefault()
   createToy()
+  toggleToyFormVisibility()
 }
 
 const createToy = () => {
