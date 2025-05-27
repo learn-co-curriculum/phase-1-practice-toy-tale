@@ -36,11 +36,38 @@ const createToy = () => {
     }
     fetch(url, options)
       .then(resp => resp.json())
-      .then(data => console.log(data))
+      .then(data => displayToy(data))
       .catch(err => console.log(err.message))
     nameInput.value = ""
     imageInput.value = ''
   } else {
     console.log("You're missing an image url or name...")
   }
+}
+
+const displayToy = (toy) => {
+  const toyCollectionDiv = document.querySelector('#toy-collection')
+  const toyCardDiv = document.createElement('div')
+  toyCardDiv.classList.add('card')
+  const header2 = document.createElement('h2')
+  header2.textContent = toy.name
+  toyCardDiv.appendChild(header2)
+  const image = document.createElement('img')
+  image.src = toy.image
+  image.classList.add('toy-avatar')
+  toyCardDiv.appendChild(image)
+  const likes = document.createElement('p')
+  likes.textContent = `${toy.likes} likes`
+  toyCardDiv.appendChild(likes)
+  const likeButton = document.createElement('button')
+  likeButton.classList.add('like-btn')
+  likeButton.id = toy.id
+  likeButton.textContent = "Like ❤️"
+  likeButton.addEventListener('click', addLike)
+  toyCardDiv.appendChild(likeButton)
+  toyCollectionDiv.appendChild(toyCardDiv)
+}
+
+const addLike = () => {
+  console.log('like')
 }

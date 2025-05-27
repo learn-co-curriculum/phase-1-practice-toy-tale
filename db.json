@@ -68,6 +68,12 @@
       "name": "Joe",
       "image": "https://harrypottershop.com/cdn/shop/files/PL00010266_1_db0c45ac-f22a-491b-b293-af52b4135783.png?v=1693490295&width=416",
       "likes": 0
+    },
+    {
+      "id": "662e",
+      "name": "Dobby",
+      "image": "https://harrypottershop.com/cdn/shop/files/PL00010266_1_db0c45ac-f22a-491b-b293-af52b4135783.png?v=1693490295&width=416",
+      "likes": 0
     }
   ]
 }
