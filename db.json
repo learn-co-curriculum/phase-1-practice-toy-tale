@@ -10,7 +10,7 @@
       "id": "2",
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 8
+      "likes": 12
     },
     {
       "id": "3",
@@ -40,13 +40,13 @@
       "id": "7",
       "name": "Hamm",
       "image": "https://cdn140.picsart.com/244090226021212.png?r1024x1024",
-      "likes": 0
+      "likes": 1
     },
     {
       "id": "8",
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
-      "likes": 1
+      "likes": 2
     },
     {
       "id": "f20d",
@@ -61,13 +61,13 @@
       "id": "683e",
       "name": "John",
       "image": "https://harrypottershop.com/cdn/shop/files/PL00010266_1_db0c45ac-f22a-491b-b293-af52b4135783.png?v=1693490295&width=416",
-      "likes": 0
+      "likes": 1
     },
     {
       "id": "8725",
       "name": "Joe",
       "image": "https://harrypottershop.com/cdn/shop/files/PL00010266_1_db0c45ac-f22a-491b-b293-af52b4135783.png?v=1693490295&width=416",
-      "likes": 0
+      "likes": 2
     },
     {
       "id": "662e",

@@ -14,8 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
       toyFormContainer.style.display = "none";
     }
   });
+  loadToys();
   toyForm.addEventListener('submit', createAndDisplayToy)
 });
+
+const loadToys = () => {
+  fetch(url)
+    .then(resp => resp.json())
+    .then(toys => toys.forEach(toy => displayToy(toy)))
+}
 
 const createAndDisplayToy = (submitEvent) => {
   submitEvent.preventDefault()
@@ -68,6 +75,23 @@ const displayToy = (toy) => {
   toyCollectionDiv.appendChild(toyCardDiv)
 }
 
-const addLike = () => {
-  console.log('like')
+function addLike() {
+  const toyId = this.id
+  const toyCardDiv = this.parentNode
+  const currLikeCount = Number.parseInt(toyCardDiv.querySelector('p').textContent.split(' ')[0])
+  const options = {
+    body: JSON.stringify({ likes: currLikeCount + 1 }),
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  }
+  fetch(url + `/${toyId}`, options)
+    .then(resp => resp.json())
+    .then(data => {
+      console.log(data)
+      toyCardDiv.querySelector('p').textContent = `${currLikeCount + 1} likes`
+    })
+    .catch(err => console.log(err.message))
 }
