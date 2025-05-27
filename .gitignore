@@ -43,3 +43,4 @@ jspm_packages
 /log/*
 !/log/.keep
 /tmp
+package-lock.json

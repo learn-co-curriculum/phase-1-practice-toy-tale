@@ -91,7 +91,7 @@ function addLike() {
     .then(resp => resp.json())
     .then(data => {
       console.log(data)
-      toyCardDiv.querySelector('p').textContent = `${currLikeCount + 1} likes`
+      toyCardDiv.querySelector('p').textContent = `${currLikeCount + 1} like${currLikeCount + 1 === 1 ? '' : 's'}`
     })
     .catch(err => console.log(err.message))
 }

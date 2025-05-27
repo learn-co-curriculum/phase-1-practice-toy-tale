@@ -51,17 +51,18 @@
     {
       "id": "f20d",
       "name": "",
-      "image": ""
+      "image": "",
+      "likes": null
     },
     {
       "id": "26fd",
-      "likes": 0
+      "likes": 4
     },
     {
       "id": "683e",
       "name": "John",
       "image": "https://harrypottershop.com/cdn/shop/files/PL00010266_1_db0c45ac-f22a-491b-b293-af52b4135783.png?v=1693490295&width=416",
-      "likes": 1
+      "likes": 2
     },
     {
       "id": "8725",
@@ -74,6 +75,18 @@
       "name": "Dobby",
       "image": "https://harrypottershop.com/cdn/shop/files/PL00010266_1_db0c45ac-f22a-491b-b293-af52b4135783.png?v=1693490295&width=416",
       "likes": 0
+    },
+    {
+      "id": "4bb7",
+      "name": "Jessie",
+      "image": "https://upload.wikimedia.org/wikipedia/en/8/87/Jessie_%28Toy_Story%29.png",
+      "likes": 5
+    },
+    {
+      "id": "42e2",
+      "name": "Jessie 2",
+      "image": "https://upload.wikimedia.org/wikipedia/en/8/87/Jessie_%28Toy_Story%29.png",
+      "likes": 2
     }
   ]
 }
