@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const toysUrl = "http://localhost:3000/toys";
   const toyCollection = document.querySelector("#toy-collection");
-  const submitBtn = document.querySelector("input.submit")
+  const submitBtn = document.querySelector("input.submit");
 
   fetch(toysUrl)
     .then((response) => response.json())
@@ -39,7 +39,27 @@ document.addEventListener("DOMContentLoaded", () => {
     toyCard.append(toyName, toyAvatar, toyLikes, likeButton);
   }
 
-  submitBtn.addEventListener("submit", (event) => {
+  submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
-  })
+
+    const nameInput = document.querySelector("input.name").value;
+    const imgInput = document.querySelector("input.image").value;
+
+    const newToy = {
+      name: nameInput,
+      image: imgInput,
+      likes: 0,
+    };
+
+    fetch(toysUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(newToy),
+    })
+      .then((response) => response.json())
+      .then((toy) => createCard(toy));
+  });
 });
