@@ -35,6 +35,25 @@ document.addEventListener("DOMContentLoaded", () => {
     likeButton.className = "like-btn";
     likeButton.id = toy.id;
     likeButton.textContent = "Like ❤️";
+
+    likeButton.addEventListener("click", () => {
+      const newNumberOfLikes = (toy.likes += 1);
+      fetch(`${toysUrl}/${toy.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          likes: newNumberOfLikes,
+        }),
+      })
+        .then((response) => response.json())
+        .then((updatedToy) => {
+          toyLikes.textContent = `${updatedToy.likes} likes`;
+        });
+    });
+
     toyCollection.append(toyCard);
     toyCard.append(toyName, toyAvatar, toyLikes, likeButton);
   }
