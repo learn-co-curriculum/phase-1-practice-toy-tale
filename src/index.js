@@ -17,31 +17,54 @@ document.addEventListener("DOMContentLoaded", () => {
 const url = "http://localhost:4000/toys"
 const toyCollection = document.querySelector("#toy-collection")
 
+const appendToy = (toy) => {
+  const card = document.createElement("div")
+  card.className = "card"
+  const header = document.createElement("h2")
+  header.innerText = toy.name
+  card.appendChild(header)
+
+  const image = document.createElement("img")
+  image.src = toy.image
+  image.className = "toy-avatar"
+  card.appendChild(image)
+
+  const p = document.createElement("p")
+  p.innerText = `${toy.likes} Likes`
+  card.appendChild(p)
+
+  const button = document.createElement("button")
+  button.className = "like-btn"
+  button.setAttribute("id", toy.id)
+  button.innerText = "Like ❤️"
+  card.appendChild(button)
+
+  toyCollection.appendChild(card)
+}
+
 fetch(url)
   .then((response) => response.json())
-  .then((toys) => {
-    toys.forEach((toy) => {
-      const card = document.createElement("div")
-      card.className = "card"
-      const header = document.createElement("h2")
-      header.innerText = toy.name
-      card.appendChild(header)
+  .then((toys) => toys.forEach(appendToy))
 
-      const image = document.createElement("img")
-      image.src = toy.image
-      image.className = "toy-avatar"
-      card.appendChild(image)
+const form = document.querySelector(".add-toy-form")
+const nameInput = form.querySelector("input[name=name]")
+const imageInput = form.querySelector("input[name=image]")
 
-      const p = document.createElement("p")
-      p.innerText = `${toy.likes} Likes`
-      card.appendChild(p)
+form.addEventListener("submit", (event) => {
+  event.preventDefault()
 
-      const button = document.createElement("button")
-      button.className = "like-btn"
-      button.setAttribute("id", toy.id)
-      button.innerText = "Like ❤️"
-      card.appendChild(button)
-
-      toyCollection.appendChild(card)
-    })
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      name: nameInput.value,
+      image: imageInput.value,
+      likes: 0,
+    }),
   })
+    .then((response) => response.json())
+    .then(appendToy)
+})
