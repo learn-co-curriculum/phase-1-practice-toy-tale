@@ -14,15 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 })
 
-const url = "http://localhost:4000/toys"
+const url = "http://localhost:4000/toys/"
 const toyCollection = document.querySelector("#toy-collection")
+const form = document.querySelector(".add-toy-form")
+const nameInput = form.querySelector("input[name=name]")
+const imageInput = form.querySelector("input[name=image]")
 let allToys = []
 
 const incrementLikes = ({ target }) => {
   const clickedToy = allToys.find((toy) => toy.id === target.id)
   const likes = clickedToy.likes
 
-  fetch(`${url}/${target.id}`, {
+  fetch(url + target.id, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -39,7 +42,21 @@ const incrementLikes = ({ target }) => {
     })
 }
 
+const deleteToy = ({ target }) => {
+  fetch(url + target.id, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then(() => target.parentElement.remove())
+}
+
 const appendToy = (toy) => {
+  allToys.push(toy)
+
   const card = document.createElement("div")
   card.className = "card"
   const header = document.createElement("h2")
@@ -57,24 +74,19 @@ const appendToy = (toy) => {
 
   const button = document.createElement("button")
   button.className = "like-btn"
-  button.setAttribute("id", toy.id)
+  button.id = toy.id
   button.innerText = "Like ❤️"
   button.addEventListener("click", incrementLikes)
   card.appendChild(button)
 
+  const deleteButton = document.createElement("button")
+  deleteButton.innerText = "X"
+  deleteButton.id = toy.id
+  deleteButton.addEventListener("click", deleteToy)
+  card.appendChild(deleteButton)
+
   toyCollection.appendChild(card)
 }
-
-fetch(url)
-  .then((response) => response.json())
-  .then((toys) => {
-    allToys = toys
-    toys.forEach(appendToy)
-  })
-
-const form = document.querySelector(".add-toy-form")
-const nameInput = form.querySelector("input[name=name]")
-const imageInput = form.querySelector("input[name=image]")
 
 form.addEventListener("submit", (event) => {
   event.preventDefault()
@@ -94,3 +106,7 @@ form.addEventListener("submit", (event) => {
     .then((response) => response.json())
     .then(appendToy)
 })
+
+fetch(url)
+  .then((response) => response.json())
+  .then((toys) => toys.forEach(appendToy))
