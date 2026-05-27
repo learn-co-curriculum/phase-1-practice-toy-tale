@@ -17,10 +17,6 @@ body {
   width: auto;
 }
 
-#toy-collection {
-  margin: 2rem;
-}
-
 .card {
   text-align: center;
   border: grey solid 1px;
@@ -96,4 +92,49 @@ button:hover {
   font-size: 18px;
   font-family: monospace;
   margin: 3px;
+}
+
+.card {
+  position: relative;
+}
+
+.card .del-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  border: 1px solid #b00020;
+  border-radius: 4px;
+  background-color: #ff4d4d;
+  color: #fff;
+  cursor: pointer;
+}
+
+.card .del-btn:hover {
+  background-color: #b00020;
+}
+
+#toy-collection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  max-width: calc(5 * (15rem + 4rem));
+  margin: 2rem auto; 
+  padding: 0;
+}
+
+
+.card {
+  flex: 0 0 auto;  
+  position: relative; 
 }
