@@ -1,37 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const url = "http://localhost:3000/toys";
   const addBtn = document.querySelector("#new-toy-btn");
   const toyFormContainer = document.querySelector(".container");
   const form = document.querySelector(".add-toy-form");
   const toyCollection = document.getElementById("toy-collection");
 
-  fetch("http://localhost:3000/toys")
+  fetch(url)
     .then((res) => res.json())
     .then((items) => {
       renderToys(items);
     });
-
-  let addToy = false;
-
-  addBtn.addEventListener("click", () => {
-    addToy = !addToy;
-    if (addToy) {
-      toyFormContainer.style.display = "block";
-    } else {
-      toyFormContainer.style.display = "none";
-    }
-  });
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const newToy = {
-      name: formData.get("name"),
-      image: formData.get("image"),
-      likes: 0,
-    };
-    createItem(newToy);
-    form.reset();
-  });
 
   function renderToys(items) {
     items.forEach((item) => {
@@ -82,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function createItem(newToy) {
-    fetch("http://localhost:3000/toys", {
+    fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -93,5 +71,28 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((createdItem) => {
         renderToys([createdItem]);
       });
+
+    let addToy = false;
+
+    addBtn.addEventListener("click", () => {
+      addToy = !addToy;
+      if (addToy) {
+        toyFormContainer.style.display = "block";
+      } else {
+        toyFormContainer.style.display = "none";
+      }
+    });
+    
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const newToy = {
+        name: formData.get("name"),
+        image: formData.get("image"),
+        likes: 0,
+      };
+      createItem(newToy);
+      form.reset();
+    });
   }
 });
