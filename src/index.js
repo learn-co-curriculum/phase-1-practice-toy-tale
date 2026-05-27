@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function createItem(newToy) {
+  function createdItem(newToy) {
     fetch(url, {
       method: "POST",
       headers: {
@@ -68,8 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
       body: JSON.stringify(newToy),
     })
       .then((res) => res.json())
-      .then((createdItem) => {
-        renderToys([createdItem]);
+      .then(() => {
+        renderToys([]);
       });
 
     let addToy = false;
