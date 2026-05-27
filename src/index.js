@@ -45,12 +45,22 @@ document.addEventListener("DOMContentLoaded", () => {
           .then((updatedToy) => {
             item.likes = updatedToy.likes;
             likesCount.innerText = `Likes: ${item.likes}`;
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      });
+          }) .catch (error => {
+            if (error.response) {
+              console.log("data", error.response.data)
+              console.log("status", error.response.status)
+              console.log("headers", error.response.headers)
 
+            } else if (error.request) {
+              console.log("Request Not Received!")
+
+            } else {
+              console.log("Error", error.message)
+            }
+          })
+        })
+
+     
       div.appendChild(image);
       div.appendChild(name);
       div.appendChild(likesCount);
@@ -70,7 +80,20 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((res) => res.json())
       .then(() => {
         renderToys([]);
-      });
+      }) .catch (error => {
+            if (error.response) {
+              console.log("data", error.response.data)
+              console.log("status", error.response.status)
+              console.log("headers", error.response.headers)
+
+            } else if (error.request) {
+              console.log("Request Not Received!")
+
+            } else {
+              console.log("Error", error.message)
+            }
+          })
+        
 
     let addToy = false;
 
